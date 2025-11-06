@@ -84,6 +84,12 @@ app.get("/api/houses/", (req, res)=>{ //this is the get request, make sure you p
     console.log("in get request");
     res.send(houses);
 });
+
+app.get("/api/houses/:id", (req, res)=>{ 
+    const house = houses.find((house)=> house._id === parseInt(req.params.id));
+    res.send(houses);
+});
+
 app.listen(3001, () => {
   console.log("Server is running on port 3001");
 });
